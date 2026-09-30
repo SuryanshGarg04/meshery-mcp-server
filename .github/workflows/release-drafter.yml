@@ -9,7 +9,7 @@ on:
       - '.github/**'
 jobs:
   update_release_draft:
-    if: github.repository == 'meshery/meshery'
+    if: github.repository == 'meshery-extensions/meshery-mcp-server'
     runs-on: ubuntu-24.04
     steps:
       - name: Drafting release

@@ -1,21 +1,18 @@
-name-template: 'Meshery v$NEXT_PATCH_VERSION'
+name-template: 'Meshery MCP Server v$NEXT_PATCH_VERSION'
 tag-template: 'v$NEXT_PATCH_VERSION'
 categories:
   - title: '🚀 Features'
     labels:
       - 'kind/feature'
       - 'kind/enhancement'
-  - title: '⌨️ Meshery CLI'
+  - title: '🛠 MCP Tools, Resources, Prompts'
     labels:
-      - 'component/mesheryctl'
-  - title: '🖥 Meshery UI'
+      - 'component/tools'
+      - 'component/resources'
+      - 'component/prompts'
+  - title: '🔌 Meshery Client'
     labels:
-      - 'component/ui'
-  - title: '🔋 Patterns, Filters, Applications'
-    labels:
-      - 'component/patterns'
-      - 'component/applications'
-      - 'component/filters'      
+      - 'component/meshery-client'
   - title: '🐛 Bug Fixes'
     labels:
       - 'kind/fix'
@@ -29,7 +26,7 @@ categories:
   - title: 📖 Documentation
     label: area/docs
   - title: 🔒 Security
-    label: security  
+    label: security
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 template: |
   ## What's New
@@ -44,16 +41,6 @@ autolabeler:
   - label: 'area/docs'
     branch:
       - '/docs/'
-  - label: 'area/ci'    
-    branch:
-      - '/.github/'
-  - label: 'component/ui'
-    branch:
-      - '/ui/'
-      - '/provider-ui/'
-  - label: 'component/mesheryctl'
-    branch:
-      - '/mesheryctl/'
-  - label: 'area/lifecycle'
-    branch:
-      - '/install/'
+  - label: 'area/ci'
+    files:
+      - '.github/**'

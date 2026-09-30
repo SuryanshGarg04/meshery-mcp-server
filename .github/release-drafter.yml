@@ -1,5 +1,24 @@
-name-template: 'Meshery MCP Server v$NEXT_PATCH_VERSION'
-tag-template: 'v$NEXT_PATCH_VERSION'
+# Release notes are drafted here and published by GoReleaser (see workflows/release.yml).
+# The draft's name must match GoReleaser's `release.name_template` so GoReleaser can
+# attach binaries to this draft instead of creating a second release.
+name-template: 'Meshery MCP Server v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+# The next version is resolved from the labels of the PRs merged since the last release.
+version-resolver:
+  major:
+    labels:
+      - 'release/major'
+  minor:
+    labels:
+      - 'kind/feature'
+      - 'kind/enhancement'
+  patch:
+    labels:
+      - 'kind/fix'
+      - 'kind/bugfix'
+      - 'kind/bug'
+      - 'kind/chore'
+  default: patch
 categories:
   - title: '🚀 Features'
     labels:

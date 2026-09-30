@@ -49,4 +49,8 @@ changelog:
 # once a Dockerfile exists.
 
 release:
+  # Must match `name-template` in .github/release-drafter.yml. GoReleaser finds the
+  # Release Drafter draft by this name, uploads the artifacts to it, keeps its notes
+  # (default `mode: keep-existing`), and publishes it.
   name_template: "Meshery MCP Server {{.Tag}}"
+  use_existing_draft: true

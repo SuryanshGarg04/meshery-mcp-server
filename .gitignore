@@ -55,7 +55,7 @@ dist/**
 
 # IDE
 **/.idea
-.vscode/
+.vscode/**
 .cursorignore
 *.config
 

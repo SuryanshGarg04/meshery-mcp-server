@@ -55,12 +55,11 @@ dist/**
 
 # IDE
 **/.idea
-.vscode/** */
-.cusorignore
+.vscode/
+.cursorignore
 *.config
 
 # Meshery
 **errorutil_analyze_errors.json
 **errorutil_analyze_summary.json
 **errorutil_errors_export.json
-

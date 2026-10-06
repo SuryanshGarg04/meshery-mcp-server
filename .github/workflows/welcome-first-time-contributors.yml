@@ -36,7 +36,7 @@ jobs:
 
       - name: 🎉 Welcome First-Time Issue Author
         if: github.event_name == 'issues'
-        uses: actions/first-interaction@v1
+        uses: actions/first-interaction@34f15e814fe48ac9312ccf29db4e74fa767cbab7 # v1.3.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           issue-message: |
@@ -66,7 +66,7 @@ jobs:
 
       - name: 🎉 Welcome First-Time PR Author
         if: github.event_name == 'pull_request_target'
-        uses: actions/first-interaction@v1
+        uses: actions/first-interaction@34f15e814fe48ac9312ccf29db4e74fa767cbab7 # v1.3.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           pr-message: |

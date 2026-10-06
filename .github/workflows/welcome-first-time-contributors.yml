@@ -23,18 +23,23 @@ jobs:
 
     steps:
       - name: 🔍 Introspect Context
+        env:
+          ACTOR: ${{ github.actor }}
+          EVENT_NAME: ${{ github.event_name }}
+          REPO: ${{ github.repository }}
         run: |
           echo "::group::Workflow Context"
-          echo "Actor       : ${{ github.actor }}"
-          echo "Event Name  : ${{ github.event_name }}"
-          echo "Repository  : ${{ github.repository }}"
+          echo "Actor       : $ACTOR"
+          echo "Event Name  : $EVENT_NAME"
+          echo "Repository  : $REPO"
           echo "::endgroup::"
 
       - name: 🎉 Welcome First-Time Issue Author
         if: github.event_name == 'issues'
-        uses: actions/first-interaction@v3
+        uses: actions/first-interaction@v1
         with:
-          issue_message: |
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: |
             👋 **Welcome to the Meshery MCP Server, @${{ github.actor }}!**
 
             Thank you for opening your first issue — we're glad you're here! 🚀
@@ -61,16 +66,17 @@ jobs:
 
       - name: 🎉 Welcome First-Time PR Author
         if: github.event_name == 'pull_request_target'
-        uses: actions/first-interaction@v3
+        uses: actions/first-interaction@v1
         with:
-          pr_message: |
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          pr-message: |
             👋 **Welcome to the Meshery MCP Server, @${{ github.actor }}!**
 
             Thank you for opening your first pull request — we're excited to review your contribution! 🚀
 
             A few things that will help your PR get merged smoothly:
 
-            - ✅ **DCO sign-off** — make sure every commit is signed off (`git commit -s`) as required by the [Developer Certificate of Origin](https://docs.meshery.io/project/contributing/contributing-github#signing-off-on-commits-developer-certificate-of-origin).
+            - ✅ **DCO sign-off** — make sure every commit is signed off (`git commit -s`) as required by the [Developer Certificate of Origin](https://docs.meshery.io/project/contributing#general-contribution-flow).
             - 🧪 **Tests** — if your change affects an MCP tool, resource, or prompt, please include or update tests (`go test ./...`).
             - 📝 **Description** — a clear PR description, with example MCP requests/responses where relevant, helps reviewers understand your intent quickly.
 
